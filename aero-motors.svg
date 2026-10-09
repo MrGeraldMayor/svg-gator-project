@@ -1,0 +1,375 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1024" width="1440" height="1024" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>AERO MOTORS</title>
+ <style>
+    <![CDATA[
+    /* ---------- Animations ---------- */
+    @keyframes driftIn {
+      0%   { transform: translateX(1100px); opacity: 0; }
+      60%  { opacity: 1; }
+      85%  { transform: translateX(-24px); }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      0%   { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes headlightPulse {
+      0%, 100% { opacity: 0.55; }
+      50%      { opacity: 1; }
+    }
+    @keyframes beamPulse {
+      0%, 100% { opacity: 0.25; }
+      50%      { opacity: 0.8; }
+    }
+    @keyframes glowBreath {
+      0%, 100% { opacity: 0.75; }
+      50%      { opacity: 1; }
+    }
+    @keyframes wheelSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ---------- Applied classes ---------- */
+    .car-drift {
+      animation: driftIn 2.2s cubic-bezier(0.16, 0.8, 0.3, 1) 0.1s both;
+    }
+    .headlight {
+      animation: headlightPulse 2.4s ease-in-out 2.3s infinite;
+    }
+    .beam {
+      animation: beamPulse 2.4s ease-in-out 2.3s infinite;
+    }
+    .bg-glow {
+      animation: glowBreath 6s ease-in-out infinite;
+    }
+    .fade-up   { animation: fadeUp 1.1s ease-out both; }
+    .d1 { animation-delay: 0.2s; }
+    .d2 { animation-delay: 0.45s; }
+    .d3 { animation-delay: 0.7s; }
+    .d4 { animation-delay: 0.95s; }
+    .d5 { animation-delay: 1.2s; }
+    .feature-in { animation: fadeUp 1s ease-out 1.5s both; }
+
+    .wheel-spin {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: wheelSpin 1.6s linear 0.1s 1 both;
+    }
+
+    /* ---------- Hover: floating buttons & cards ---------- */
+    .float-btn, .card, .nav-link {
+      cursor: pointer;
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
+    }
+    .float-btn:hover {
+      transform: translateY(-6px) scale(1.04);
+      filter: drop-shadow(0 14px 22px rgba(0, 229, 255, 0.45));
+    }
+    .float-btn-ghost:hover {
+      transform: translateY(-6px) scale(1.04);
+      filter: drop-shadow(0 12px 18px rgba(255, 255, 255, 0.2));
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      filter: drop-shadow(0 16px 24px rgba(0, 229, 255, 0.25));
+    }
+    .nav-link:hover { transform: translateY(-2px); opacity: 1; }
+    .nav-link text { fill: #b9c2d0; transition: fill 0.3s ease; }
+    .nav-link:hover text { fill: #ffffff; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+    ]]>
+  </style>
+  <defs>
+    <!-- Backgrounds -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#05070d"/>
+      <stop offset="0.6" stop-color="#0a0f1c"/>
+      <stop offset="1" stop-color="#04060b"/>
+    </linearGradient>
+    <radialGradient id="heroGlow" cx="0.55" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#00e5ff" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#3a3cff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#05070d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="purpleGlow" cx="0.2" cy="0.3" r="0.5">
+      <stop offset="0" stop-color="#8a2be2" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#05070d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="floorGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00e5ff" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Car paint -->
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3550"/>
+      <stop offset="0.45" stop-color="#121a2c"/>
+      <stop offset="1" stop-color="#070b14"/>
+    </linearGradient>
+    <linearGradient id="bodyHighlight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00e5ff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#9ff4ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5fd8ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0b1226" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="wheelGrad" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#3a4258"/>
+      <stop offset="0.6" stop-color="#151a28"/>
+      <stop offset="1" stop-color="#05070d"/>
+    </radialGradient>
+
+    <!-- Headlight -->
+    <radialGradient id="lightCore" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.4" stop-color="#bff6ff"/>
+      <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#bff6ff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#00e5ff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- UI -->
+    <linearGradient id="ctaGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00e5ff"/>
+      <stop offset="1" stop-color="#4f6bff"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#8fe9ff"/>
+    </linearGradient>
+
+    <filter id="blur30" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <filter id="blur8" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="blur3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- ================= BACKGROUND ================= -->
+  <rect width="1440" height="1024" fill="url(#bgGrad)"/>
+  <rect width="1440" height="1024" fill="url(#purpleGlow)"/>
+  <g class="bg-glow">
+    <ellipse cx="860" cy="500" rx="640" ry="330" fill="url(#heroGlow)"/>
+  </g>
+
+  <!-- subtle grid lines -->
+  <g stroke="#ffffff" stroke-opacity="0.035" stroke-width="1">
+    <line x1="0" y1="140" x2="1440" y2="140"/>
+    <line x1="0" y1="780" x2="1440" y2="780"/>
+    <line x1="240" y1="0" x2="240" y2="1024"/>
+    <line x1="720" y1="0" x2="720" y2="1024"/>
+    <line x1="1200" y1="0" x2="1200" y2="1024"/>
+  </g>
+
+  <!-- ================= NAV HEADER ================= -->
+  <g id="header">
+    <rect x="0" y="0" width="1440" height="96" fill="#05070d" fill-opacity="0.55"/>
+    <line x1="0" y1="96" x2="1440" y2="96" stroke="#ffffff" stroke-opacity="0.08"/>
+
+    <!-- Logo -->
+    <g transform="translate(72,48)">
+      <path d="M0 14 L16 -14 L32 14 L24 14 L16 0 L8 14 Z" fill="url(#ctaGrad)"/>
+      <rect x="6" y="18" width="20" height="3" rx="1.5" fill="url(#ctaGrad)"/>
+      <text x="46" y="9" font-size="24" font-weight="700" letter-spacing="6" fill="#ffffff">AERO</text>
+      <text x="134" y="9" font-size="24" font-weight="300" letter-spacing="6" fill="#8fe9ff">MOTORS</text>
+    </g>
+
+    <!-- Links -->
+    <g font-size="15" letter-spacing="1.5">
+      <g class="nav-link"><text x="560" y="54" text-anchor="middle">MODELS</text></g>
+      <g class="nav-link"><text x="660" y="54" text-anchor="middle">TECHNOLOGY</text></g>
+      <g class="nav-link"><text x="778" y="54" text-anchor="middle">DESIGN</text></g>
+      <g class="nav-link"><text x="868" y="54" text-anchor="middle">PRICING</text></g>
+      <g class="nav-link"><text x="960" y="54" text-anchor="middle">SHOWROOMS</text></g>
+    </g>
+
+    <!-- CTA -->
+    <g class="float-btn">
+      <rect x="1148" y="28" width="220" height="44" rx="22" fill="url(#ctaGrad)"/>
+      <text x="1258" y="56" text-anchor="middle" font-size="14" font-weight="700" letter-spacing="2" fill="#04060b">BOOK TEST DRIVE</text>
+    </g>
+  </g>
+
+  <!-- ================= HERO TEXT ================= -->
+  <g id="hero-text">
+    <g class="fade-up d1">
+      <rect x="72" y="168" width="40" height="2" fill="#00e5ff"/>
+      <text x="124" y="175" font-size="14" letter-spacing="5" fill="#8fe9ff">AERO GT-X  ·  ALL ELECTRIC</text>
+    </g>
+    <g class="fade-up d2">
+      <text x="72" y="262" font-size="86" font-weight="800" fill="url(#titleGrad)" letter-spacing="-2">The Future</text>
+    </g>
+    <g class="fade-up d3">
+      <text x="72" y="352" font-size="86" font-weight="200" fill="#ffffff" letter-spacing="-2">of Motion</text>
+    </g>
+    <g class="fade-up d4">
+      <text x="72" y="406" font-size="18" fill="#9aa6bb">Precision-engineered. Silent power. Starting from</text>
+      <text x="72" y="462" font-size="46" font-weight="700" fill="#ffffff">$128,900</text>
+      <text x="292" y="462" font-size="16" fill="#6f7b92">MSRP · Est. $1,290/mo</text>
+    </g>
+    <g class="fade-up d5">
+      <g class="float-btn">
+        <rect x="72" y="496" width="190" height="52" rx="26" fill="url(#ctaGrad)"/>
+        <text x="167" y="528" text-anchor="middle" font-size="14" font-weight="700" letter-spacing="2" fill="#04060b">CONFIGURE</text>
+      </g>
+      <g class="float-btn-ghost float-btn">
+        <rect x="282" y="496" width="190" height="52" rx="26" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5"/>
+        <text x="377" y="528" text-anchor="middle" font-size="14" font-weight="600" letter-spacing="2" fill="#ffffff">WATCH FILM</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ================= CAR ================= -->
+  <!-- floor reflection / glow -->
+  <ellipse cx="900" cy="716" rx="460" ry="26" fill="url(#floorGlow)" opacity="0.6" filter="url(#blur8)"/>
+  <ellipse cx="900" cy="712" rx="520" ry="14" fill="#000" opacity="0.6" filter="url(#blur8)"/>
+
+  <g class="car-drift">
+    <!-- speed streaks -->
+    <g stroke="#8fe9ff" stroke-linecap="round" opacity="0.35">
+      <line x1="1300" y1="620" x2="1420" y2="620" stroke-width="2"/>
+      <line x1="1340" y1="650" x2="1440" y2="650" stroke-width="1.5"/>
+      <line x1="1280" y1="680" x2="1380" y2="680" stroke-width="1"/>
+    </g>
+
+    <!-- Headlight beams (car faces left) -->
+    <g class="beam">
+      <path d="M612 612 L120 560 L120 690 L612 640 Z" fill="url(#beamGrad)" opacity="0.5" filter="url(#blur8)"/>
+    </g>
+
+    <!-- BODY -->
+    <path d="M590 640
+             C592 618 612 608 650 600
+             L790 574
+             C830 546 880 520 950 508
+             C1030 496 1110 502 1166 530
+             L1250 566
+             C1318 574 1362 600 1368 640
+             L1372 676
+             C1372 690 1362 698 1348 698
+             L640 698
+             C612 698 592 686 590 664 Z"
+          fill="url(#bodyGrad)" stroke="#8fe9ff" stroke-opacity="0.35" stroke-width="1.2"/>
+
+    <!-- Cabin / glass -->
+    <path d="M836 566
+             C874 536 922 520 972 516
+             C1040 512 1104 520 1146 544
+             L1196 568
+             L836 574 Z"
+          fill="url(#glassGrad)" stroke="#9ff4ff" stroke-opacity="0.5" stroke-width="1"/>
+    <path d="M990 520 L1004 570" stroke="#04060b" stroke-width="5" stroke-opacity="0.7"/>
+
+    <!-- Body lines & highlights -->
+    <path d="M640 622 C760 598 900 588 1040 590 C1160 592 1290 600 1352 618"
+          fill="none" stroke="url(#bodyHighlight)" stroke-width="2.5"/>
+    <path d="M690 666 C800 654 1000 650 1200 656 L1340 664"
+          fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.5"/>
+    <path d="M880 604 C930 620 980 632 1040 636" fill="none" stroke="#00e5ff" stroke-opacity="0.5" stroke-width="1.5"/>
+
+    <!-- Door cut + handle -->
+    <path d="M900 574 L896 662 M1080 574 L1086 664" stroke="#000" stroke-opacity="0.6" stroke-width="1.5" fill="none"/>
+    <rect x="1000" y="598" width="46" height="5" rx="2.5" fill="#8fe9ff" fill-opacity="0.65"/>
+
+    <!-- Rear spoiler hint -->
+    <path d="M1300 560 L1366 556 L1372 566 L1304 572 Z" fill="#0a0f1c" stroke="#8fe9ff" stroke-opacity="0.45"/>
+
+    <!-- Tail light strip -->
+    <path d="M1342 594 L1368 604" stroke="#ff2b55" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- Front splitter -->
+    <path d="M590 676 L650 686 L650 698 L598 692 Z" fill="#05070d" stroke="#8fe9ff" stroke-opacity="0.4"/>
+
+    <!-- HEADLIGHT (front-left of car) -->
+    <path d="M608 616 L690 598 L700 612 L618 632 Z" fill="#05070d" stroke="#8fe9ff" stroke-opacity="0.6"/>
+    <g class="headlight">
+      <ellipse cx="640" cy="618" rx="44" ry="26" fill="url(#lightCore)" filter="url(#blur8)"/>
+      <path d="M616 622 L680 606 L688 612 L622 630 Z" fill="#ffffff"/>
+      <circle cx="632" cy="620" r="5" fill="#ffffff" filter="url(#blur3)"/>
+    </g>
+
+    <!-- Wheels -->
+    <g>
+      <circle cx="760" cy="698" r="64" fill="#04060b"/>
+      <circle cx="760" cy="698" r="52" fill="url(#wheelGrad)" stroke="#8fe9ff" stroke-opacity="0.5" stroke-width="1.5"/>
+      <g class="wheel-spin" stroke="#9aa6bb" stroke-width="3" stroke-linecap="round">
+        <line x1="760" y1="654" x2="760" y2="742"/>
+        <line x1="716" y1="698" x2="804" y2="698"/>
+        <line x1="729" y1="667" x2="791" y2="729"/>
+        <line x1="791" y1="667" x2="729" y2="729"/>
+      </g>
+      <circle cx="760" cy="698" r="12" fill="#0a0f1c" stroke="#00e5ff" stroke-width="1.5"/>
+    </g>
+    <g>
+      <circle cx="1230" cy="698" r="64" fill="#04060b"/>
+      <circle cx="1230" cy="698" r="52" fill="url(#wheelGrad)" stroke="#8fe9ff" stroke-opacity="0.5" stroke-width="1.5"/>
+      <g class="wheel-spin" stroke="#9aa6bb" stroke-width="3" stroke-linecap="round">
+        <line x1="1230" y1="654" x2="1230" y2="742"/>
+        <line x1="1186" y1="698" x2="1274" y2="698"/>
+        <line x1="1199" y1="667" x2="1261" y2="729"/>
+        <line x1="1261" y1="667" x2="1199" y2="729"/>
+      </g>
+      <circle cx="1230" cy="698" r="12" fill="#0a0f1c" stroke="#00e5ff" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <!-- ================= FEATURE CARDS ================= -->
+  <g id="features" class="feature-in">
+    <text x="72" y="806" font-size="13" letter-spacing="5" fill="#8fe9ff">PERFORMANCE</text>
+    <line x1="190" y1="802" x2="1368" y2="802" stroke="#ffffff" stroke-opacity="0.1"/>
+
+    <!-- Card 1 -->
+    <g class="card">
+      <rect x="72" y="830" width="404" height="150" rx="20" fill="url(#cardGrad)" stroke="#8fe9ff" stroke-opacity="0.28" stroke-width="1.2"/>
+      <circle cx="124" cy="880" r="24" fill="none" stroke="#00e5ff" stroke-opacity="0.7" stroke-width="1.5"/>
+      <path d="M112 886 A14 14 0 0 1 136 886 M124 886 L131 874" stroke="#00e5ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <text x="168" y="878" font-size="14" letter-spacing="3" fill="#9aa6bb">0 – 60 MPH</text>
+      <text x="168" y="934" font-size="52" font-weight="700" fill="#ffffff">1.9<tspan font-size="22" font-weight="300" fill="#8fe9ff" dx="6">sec</tspan></text>
+      <text x="104" y="966" font-size="13" fill="#6f7b92">Launch control · Tri-motor AWD</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g class="card">
+      <rect x="518" y="830" width="404" height="150" rx="20" fill="url(#cardGrad)" stroke="#8fe9ff" stroke-opacity="0.28" stroke-width="1.2"/>
+      <circle cx="570" cy="880" r="24" fill="none" stroke="#00e5ff" stroke-opacity="0.7" stroke-width="1.5"/>
+      <path d="M558 888 L570 872 L582 888 M562 880 L570 870 L578 880" stroke="#00e5ff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="614" y="878" font-size="14" letter-spacing="3" fill="#9aa6bb">TOP SPEED</text>
+      <text x="614" y="934" font-size="52" font-weight="700" fill="#ffffff">217<tspan font-size="22" font-weight="300" fill="#8fe9ff" dx="6">mph</tspan></text>
+      <text x="550" y="966" font-size="13" fill="#6f7b92">Active aero · Carbon ceramic brakes</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g class="card">
+      <rect x="964" y="830" width="404" height="150" rx="20" fill="url(#cardGrad)" stroke="#8fe9ff" stroke-opacity="0.28" stroke-width="1.2"/>
+      <circle cx="1016" cy="880" r="24" fill="none" stroke="#00e5ff" stroke-opacity="0.7" stroke-width="1.5"/>
+      <path d="M1018 866 L1008 884 L1015 884 L1013 896 L1024 876 L1017 876 Z" fill="#00e5ff"/>
+      <text x="1060" y="878" font-size="14" letter-spacing="3" fill="#9aa6bb">BATTERY RANGE</text>
+      <text x="1060" y="934" font-size="52" font-weight="700" fill="#ffffff">512<tspan font-size="22" font-weight="300" fill="#8fe9ff" dx="6">mi</tspan></text>
+      <text x="996" y="966" font-size="13" fill="#6f7b92">120 kWh · 15 min fast charge to 80%</text>
+    </g>
+  </g>
+
+  <!-- footer hairline -->
+  <text x="720" y="1008" text-anchor="middle" font-size="11" letter-spacing="4" fill="#4a5468">© 2026 AERO MOTORS · DRIVE THE FUTURE</text>
+</svg>
+
+
+
